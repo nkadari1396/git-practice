@@ -31,11 +31,11 @@ if [ $? -ne 0 ]
 then
     echo "mysql is not installed checking it"
     dnf install mysql -y
-    if [$? -ne 0 ]
+    if [ $? -ne 0 ]
     then
-        echo "git is not installed"
+        echo "mysql is not installed"
     else
-        echo "git is installing"
+        echo "mysql is installing"
     fi
     exit 1
 else
