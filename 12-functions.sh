@@ -13,14 +13,37 @@ CHECK_ROOT(){
 VALIDATE(){
     if [ $1 -ne 0 ]
     then
-        echo "$1 is...FAILED"
+        echo "$2 is...FAILED"
         exit 1
     else
-        echo "$3 is...SUCCESS"
+        echo "$2 is...SUCCESS"
     fi
 }
 
 CHECK_ROOT
+
+dnf list installed mysql
+
+if [ $? -ne 0 ]
+then
+    echo "MySQL is not installed...going to install"
+    dnf install mysql -y
+    VALIDATE $? "Installing MySQL"
+else
+    echo "MySQL is already installed..nothing to do"
+fi
+
+
+dnf list installed nginx
+
+if [ $? -ne 0 ]
+then
+    echo "nginx is not installed...going to install"
+    dnf install nginx -y
+    VALIDATE $? "Installing nginx"
+else
+    echo "MySQL is already installed..nothing to do"
+fi
 
 dnf list installed git
 
@@ -33,13 +56,3 @@ else
     echo "Git is already installed, nothing to do.."
 fi
 
-dnf list installed mysql
-
-if [ $? -ne 0 ]
-then
-    echo "MySQL is not installed...going to install"
-    dnf install mysql -y
-    VALIDATE $? "Installing MySQL"
-else
-    echo "MySQL is already installed..nothing to do"
-fi
