@@ -13,10 +13,10 @@ CHECK_ROOT(){
 VALIDATE(){
     if [ $1 -ne 0 ]
     then
-        echo "$2 is...FAILED"
+        echo "$1 is...FAILED"
         exit 1
     else
-        echo "$2 is...SUCCESS"
+        echo "$1 is...SUCCESS"
     fi
 }
 
