@@ -2,7 +2,7 @@
 
 USERID=$(id -u)
 
-CHECK_ROOT ( ) {
+CHECK_ROOT() {
 
 if [ $USERID -ne 0 ]
 then
@@ -12,7 +12,7 @@ fi
 
 }
 
-VALIDATE ( ) {
+VALIDATE(){
     if [ $? -ne 0 ]
     then 
         echo "git is not installed"
@@ -32,7 +32,7 @@ then
     echo "git is not installed checking it"
     dnf install git -y
     
-    VALIDATE
+    VALIDATE $?
 else
     echo "git is already installed nothing to do"
 fi
@@ -44,7 +44,7 @@ then
     echo "mysql is not installed checking it"
     dnf install mysql -y
 
-    VALIDATE
+    VALIDATE $?
     
 
 else
