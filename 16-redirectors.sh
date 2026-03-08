@@ -29,6 +29,7 @@ VALIDATE(){
         echo -e "$2 is... $G SUCCESS $N" | tee -a $LOG_FILE
 
     fi
+}
 
 USAGE(){
     echo -e "$R USAGE:: $N sudo sh 16-redirectors.sh package1 package2..."
