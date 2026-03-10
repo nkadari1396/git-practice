@@ -6,6 +6,8 @@ G="\e[32m"
 N="\e[0m"
 Y="\e[33m"
 
+mkdir -p /home/ec2-user/logs
+
 if [ -d $SOURCE_DIR ]
 then
     echo -e "$SOURCE_DIR $G Exists $N"
